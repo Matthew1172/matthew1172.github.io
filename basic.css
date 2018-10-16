@@ -1,6 +1,5 @@
 a
 {
-	color: black;
 }
 
 .container > div {
@@ -24,6 +23,7 @@ html, body {
 
 .header a
 {
+	color: black;
 	font-family: 'Slabo 27px', serif;
 	text-decoration: none;
 	font-size: 4em;
@@ -35,14 +35,19 @@ html, body {
 	font-family: 'Roboto Mono', monospace;
 }
 
-.menu ul li
+.menu p
 {
 	text-decoration: none;
 	list-style: none;
-	padding-bottom: 100px;
+	padding-bottom: 0px;
 }
 
-.menu ul li a:hover
+.menu p a
+{
+	color: black;
+}
+
+.menu p a:hover
 {
 	color: red;
 	text-decoration: underline;
