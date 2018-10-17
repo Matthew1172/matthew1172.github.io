@@ -31,7 +31,7 @@ html, body {
 	font-family: 'Roboto Mono', monospace;
 }
 
-.menu p
+.menu ul li
 {
 	text-decoration: none;
 	list-style: none;
@@ -39,14 +39,9 @@ html, body {
 	animation: slide_in 0.5s ease-in;
 }
 
-.menu p a
+.menu ul li:hover
 {
-	color: black;
-}
-
-.menu p a:hover
-{
-	color: red;
+	color: 	#C0C0C0;
 	text-decoration: underline;
 }
 
@@ -71,7 +66,8 @@ html, body {
 
 .footer 
 {
-	background-color: #2F4F4F;
+	background-color: #D3D3D3;
+	color: 	#808080;
 	font-family: 'Slabo 27px', serif;
 	justify-content: center;
 	align-items: center;
