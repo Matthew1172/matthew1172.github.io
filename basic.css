@@ -1,7 +1,3 @@
-a
-{
-}
-
 .container > div {
   display: flex;
 }
@@ -17,7 +13,7 @@ html, body {
   box-sizing: border-box;
   background-color: white;
   height: 100%;
-  padding: 10px;
+  padding: 0px;
   margin: 0px;
 }
 
@@ -40,6 +36,7 @@ html, body {
 	text-decoration: none;
 	list-style: none;
 	padding-bottom: 0px;
+	animation: slide_in 0.5s ease-in;
 }
 
 .menu p a
@@ -59,6 +56,8 @@ html, body {
 	font-size: 3em;
 	background-color: black;
 	color: white;
+	animation: fade 1s;
+	
 }
 .content p
 {	
@@ -76,6 +75,31 @@ html, body {
 	font-family: 'Slabo 27px', serif;
 	justify-content: center;
 	align-items: center;
+}
+
+@keyframes fade
+{
+	from
+	{
+		opacity: 0;
+	}
+	
+	to
+	{
+		opacity: 1;
+	}
+}
+
+@keyframes slide_in
+{
+	0%
+	{
+		transform: skewX(53deg) translateX(-500px);
+	}
+	100%
+	{
+		transform: skew(0deg);
+	}
 }
 
 @media screen and (min-width: 1200px)
@@ -98,31 +122,9 @@ html, body {
 		html, body {
 		  box-sizing: border-box;
 		  height: 100%;
-		  padding: 10px;
+		  padding: 0px;
 		  margin: 0px;
 		}
-
-		.header 
-		{
-
-		}
-
-		.menu 
-		{
-
-		}
-
-		.content 
-		{
-
-		}
-
-		.footer 
-		{
-		  justify-content: center;
-		  align-items: center;
-		}
-
 }
 
 /*
