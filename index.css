@@ -1,15 +1,15 @@
 .container {
     height: 100%;
     display: grid;
-    grid-gap: 3px;
+    grid-gap: 0px;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 100px 150px auto 200px 100px;
+    grid-template-rows: 100px 150px auto 200px 200px;
 	
     grid-template-areas: 
         "h h h h h h h h h h h h"
-	"i i i i i i i i i i i i"
-	"c c c c c c c c c c c c"
-	". . . . . . . . . . . ."
+		"i i i i i i i i i i i i"
+		"c c c c c c c c c c c c"
+		". . . . . . . . . . . ."
         "f f f f f f f f f f f f";
 }
 
