@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+
+
 a
 {
 	color: #551A8B;
@@ -24,19 +28,19 @@ html, body {
 
 .header
 {
+	padding-top: 40px;
 	background-color: black;
 	align-items: center;
+/*
 	animation: slide_in 0.5s ease-in;
+*/
 }
 
 .header a
 {
 	color: white;
-	font-family: 'Slabo 27px', serif;
+	      font-family: 'Anonymous Pro', monospace;
 	text-decoration: none;
-	font-size: 4em;
-    color: #41FF00;
-	
 }
 
 .content 
@@ -44,7 +48,7 @@ html, body {
 	font-family: 'Roboto Mono', monospace;
 	font-size: 3em;
 	background-color: #212121;
-	color: #41FF00;
+	color: white;
 	animation: fade 1s;
 }
 
@@ -117,6 +121,7 @@ ion-icon {
 	}
 }
 
+
 @keyframes slide_in
 {
 	0%
@@ -128,6 +133,42 @@ ion-icon {
 		transform: skew(0deg);
 	}
 }
+
+
+
+.line {
+      font-size: 4em;
+      border-right: 2px solid rgba(255, 255, 255, 0.75);
+      white-space: nowrap;
+      overflow: hidden;transform: translateY(-50%);
+}
+
+
+/*Animation*/
+
+.anim-typewriter {
+      animation: typewriter 2s steps( 30) 0s 1 normal both,
+      blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+@keyframes typewriter {
+      from {
+            width: 0;
+      }
+      to {
+            width:  565px;
+      }
+}
+
+@keyframes blinkTextCursor {
+      from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+      }
+      to {
+            border-right-color: transparent;
+      }
+}
+
 
 @media screen and (min-width: 1200px)
 {
