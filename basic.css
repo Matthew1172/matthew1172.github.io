@@ -1,5 +1,10 @@
+a
+{
+	color: #551A8B;
+}
+
 .container > div {
-  display: flex;
+	display: flex;
 }
 
 .container
@@ -21,6 +26,7 @@ html, body {
 {
 	background-color: black;
 	align-items: center;
+	animation: slide_in 0.5s ease-in;
 }
 
 .header a
@@ -29,42 +35,35 @@ html, body {
 	font-family: 'Slabo 27px', serif;
 	text-decoration: none;
 	font-size: 4em;
-}
-
-.menu 
-{
-	font-size: 2em;
-	font-family: 'Roboto Mono', monospace;
-	justify-content: center;
-	align-items: center;
-}
-
-.menu ul li
-{
-	text-decoration: none;
-	list-style: none;
-	animation: slide_in 0.5s ease-in;
-}
-
-.menu ul li:hover
-{
-	color: 	#C0C0C0;
-	text-decoration: underline;
+    color: #41FF00;
+	
 }
 
 .content 
 {
-	font-family: 'Merriweather', serif;
+	font-family: 'Roboto Mono', monospace;
 	font-size: 3em;
 	background-color: #212121;
-	color: white;
+	color: #41FF00;
 	animation: fade 1s;
-	
 }
+
 .content p
 {	
 	padding-left:  50px;
 	padding-right:  50px;
+}
+
+.content p a
+{	
+	text-decoration: none;
+
+}
+
+.content p a:hover
+{	
+	color: 	#C0C0C0;
+	text-decoration: underline;
 }
 
 .footer 
@@ -72,22 +71,21 @@ html, body {
 	background-color: #212121;
 	justify-content: center;
 	align-items: center;
-	
-	color: 	#808080;
+	text-align: center;
 	font-family: 'Slabo 27px', serif;
+	font-size: 2em;
 }
 
 .footer a
 {
-	color: 	purple;
-	background-color: #212121;
 	justify-content: center;
 	align-items: center;
+	text-decoration: none;
 }
 
 .info
 {
-	background-color: #D3D3D3;
+	background-color: white;
 	justify-content: center;
 	align-items: center;
 }
@@ -134,43 +132,9 @@ ion-icon {
 
 @media screen and (min-width: 1200px)
 {
-    
-		.container div {
-		  display: flex;
-		  /*
-		  justify-content: center;
-		  align-items: center;
-		    */
-		}
-
 		.container
 		{
 			margin-left: 100px;
 			margin-right: 100px;
 		}
-
-		html, body {
-		  box-sizing: border-box;
-		  height: 100%;
-		  padding: 0px;
-		  margin: 0px;
-		}
 }
-
-/*
-.container > div:nth-child(1n) {
-  background-color: #96ceb4;	
-}
-
-.container > div:nth-child(3n) {
-  background-color: #88d8b0;
-}
-
-.container > div:nth-child(2n) {
-  background-color: #ff6f69;
-}
-
-.container > div:nth-child(4n) {
-  background-color: #ffcc5c;
-}
-*/
