@@ -11,15 +11,21 @@
 
 html, body {
   box-sizing: border-box;
-  background-color: white;
+  background-color: black;
   height: 100%;
   padding: 0px;
   margin: 0px;
 }
 
+.header
+{
+	background-color: black;
+	align-items: center;
+}
+
 .header a
 {
-	color: black;
+	color: white;
 	font-family: 'Slabo 27px', serif;
 	text-decoration: none;
 	font-size: 4em;
@@ -29,13 +35,14 @@ html, body {
 {
 	font-size: 2em;
 	font-family: 'Roboto Mono', monospace;
+	justify-content: center;
+	align-items: center;
 }
 
 .menu ul li
 {
 	text-decoration: none;
 	list-style: none;
-	padding-bottom: 100px;
 	animation: slide_in 0.5s ease-in;
 }
 
@@ -49,7 +56,7 @@ html, body {
 {
 	font-family: 'Merriweather', serif;
 	font-size: 3em;
-	background-color: black;
+	background-color: #212121;
 	color: white;
 	animation: fade 1s;
 	
@@ -60,17 +67,44 @@ html, body {
 	padding-right:  50px;
 }
 
-.profile
-{
-}
-
 .footer 
 {
-	background-color: #D3D3D3;
-	color: 	#808080;
-	font-family: 'Slabo 27px', serif;
+	background-color: #212121;
 	justify-content: center;
 	align-items: center;
+	
+	color: 	#808080;
+	font-family: 'Slabo 27px', serif;
+}
+
+.footer a
+{
+	color: 	purple;
+	background-color: #212121;
+	justify-content: center;
+	align-items: center;
+}
+
+.info
+{
+	background-color: #D3D3D3;
+	justify-content: center;
+	align-items: center;
+}
+
+.info ul
+{
+	list-style: none;
+}
+
+.info ul li
+{
+	padding: 50px;
+	display: inline;
+}
+
+ion-icon {
+  font-size: 64px;
 }
 
 @keyframes fade
