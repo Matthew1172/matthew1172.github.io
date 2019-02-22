@@ -1,10 +1,75 @@
-h1{
-  color: white;
-}
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
 body{
   background-color: black;
 }
 canvas {
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 70%;
+}
+.canvas-container{
+  text-align: center;
+}
+.logo a{
+  color: white;
+  font-family: 'Anonymous Pro', monospace;
+}
+@keyframes fade
+{
+	from
+	{
+		opacity: 0;
+	}
+	to
+	{
+		opacity: 1;
+	}
+}
+
+
+@keyframes slide_in
+{
+	0%
+	{
+		transform: skewX(53deg) translateX(-500px);
+	}
+	100%
+	{
+		transform: skew(0deg);
+	}
+}
+
+
+
+.line {
+      font-size: 4em;
+      border-right: 2px solid rgba(255, 255, 255, 0.75);
+      white-space: nowrap;
+      overflow: hidden;transform: translateY(-50%);
+}
+
+
+/*Animation*/
+
+.anim-typewriter {
+      animation: typewriter 2s steps( 30) 0s 1 normal both,
+      blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+@keyframes typewriter {
+      from {
+            width: 0;
+      }
+      to {
+            width:  570px;
+      }
+}
+
+@keyframes blinkTextCursor {
+      from {
+            border-right-color: rgba(255, 255, 255, 0.75);
+      }
+      to {
+            border-right-color: transparent;
+      }
 }
