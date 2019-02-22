@@ -12,8 +12,32 @@ canvas {
 }
 .logo a{
   color: white;
-  font-family: 'Anonymous Pro', monospace;
+	font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
 }
+.title{
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  font-family: "Georgia", Times, Sans-serif;
+}
+.socialMedia{
+  text-align: center;
+}
+.socialMedia ul
+{
+	list-style: none;
+  padding: 0px;
+}
+.socialMedia ul li
+{
+	display: inline;
+  padding: 60px;
+}
+ion-icon{
+  font-size: 72px;
+  color: white;
+}
+
 @keyframes fade
 {
 	from
@@ -25,8 +49,6 @@ canvas {
 		opacity: 1;
 	}
 }
-
-
 @keyframes slide_in
 {
 	0%
@@ -38,19 +60,12 @@ canvas {
 		transform: skew(0deg);
 	}
 }
-
-
-
 .line {
       font-size: 4em;
       border-right: 2px solid rgba(255, 255, 255, 0.75);
       white-space: nowrap;
       overflow: hidden;transform: translateY(-50%);
 }
-
-
-/*Animation*/
-
 .anim-typewriter {
       animation: typewriter 2s steps( 30) 0s 1 normal both,
       blinkTextCursor 500ms steps(40) infinite normal;
@@ -61,7 +76,7 @@ canvas {
             width: 0;
       }
       to {
-            width:  570px;
+            width:  620px;
       }
 }
 
