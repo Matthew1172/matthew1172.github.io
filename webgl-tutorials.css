@@ -1,7 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
+@import url('https://fonts.googleapis.com/css?family=Questrial');
 body{
   background-color: black;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 canvas {
   width: 70%;
@@ -18,10 +20,11 @@ canvas {
   text-align: center;
   color: white;
   font-size: 28px;
-  font-family: "Georgia", Times, Sans-serif;
+  font-family: 'Questrial', sans-serif;
 }
 .socialMedia{
   text-align: center;
+  padding-bottom: 70px;
 }
 .socialMedia ul
 {
@@ -76,7 +79,7 @@ ion-icon{
             width: 0;
       }
       to {
-            width:  680px;
+            width:  650px;
       }
 }
 
