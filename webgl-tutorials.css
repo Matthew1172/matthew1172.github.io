@@ -15,6 +15,7 @@ canvas {
 .logo a{
   color: white;
   font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace;
+  text-decoration: none;
 }
 .title{
   text-align: center;
