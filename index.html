@@ -7,7 +7,10 @@
 </head>
 <link type="text/css" href="webgl-tutorials.css" rel="stylesheet" />
 <body>
-  <p class="logo line anim-typewriter"><a href="mailto:pecko.matthew@gmail.com">matthewpecko.com</a></p>
+  <p style="position: absolute;" class="logo line anim-typewriter"><a href="mailto:pecko.matthew@gmail.com">matthewpecko.com</a></p>
+	
+  <div style="position: absolute; z-index: 1;" class="canvas-container"><canvas id="c" height="1200" width="1800"></canvas></div>
+	
   <div class="socialMedia">
   <ul>
   <li><a href="https://www.instagram.com/drpecko/"><ion-icon name="logo-instagram"></ion-icon></a></li>
@@ -24,7 +27,6 @@
 		<h3><a style="color:white;" href="mailto:pecko.matthew@gmail.com">pecko.matthew@gmail.com</a></h3>
 		<h3><a style="color:white;" href="resume2.html">Resume</a></h3>
 	</div>
-  <div class="canvas-container"><canvas id="c" height="1200" width="1800"></canvas></div>
 </body>
 
 <script src="webgl-utils.js"></script>
