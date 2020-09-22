@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf8">
-  <title addtitletodoc="false">matthewpecko.com</title>
-<link rel='icon' href='assets/BLACK.ico' type='image/x-icon'/ >
+	<meta charset="utf8">
+	<title addtitletodoc="false">matthewpecko.com</title>
+	<link rel='icon' href='assets/BLACK.ico' type='image/x-icon' />
 </head>
 <link type="text/css" href="webgl-tutorials.css" rel="stylesheet" />
-	
+
 <body>
-<div>
-	<p class="logo line anim-typewriter"><a href="mailto:pecko.matthew@gmail.com">matthewpecko.com</a></p>
-	<div class="socialMedia">
-		<ul>
-		<li><a href="https://www.instagram.com/drpecko/"><ion-icon name="logo-instagram"></ion-icon></a></li>
-		<li><a href="https://www.facebook.com/people/Matthew-Pecko/100011281894521"><ion-icon name="logo-facebook"></ion-icon></a></li>
-		<li><a href="https://www.linkedin.com/in/matthew-pecko-278b9314b"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-		<li><a href="https://github.com/Matthew1172"><ion-icon name="logo-github"></ion-icon></a></li>
-		</ul>
+	<div
+		style="justify-content: center; align-items: center; display: flex; flex-direction: column; margin-top: 250px;">
+		<div style="position: absolute; z-index: 1;">
+			<p style="margin-top: 710px; margin-bottom: 190px; margin-left: 70px;" class="logo line anim-typewriter"><a
+					href="mailto:pecko.matthew@gmail.com">matthewpecko.com</a></p>
+			<div class="socialMedia">
+				<ul>
+					<li><a href="https://www.instagram.com/drpecko/">
+							<ion-icon name="logo-instagram"></ion-icon>
+						</a></li>
+					<li><a href="https://www.facebook.com/people/Matthew-Pecko/100011281894521">
+							<ion-icon name="logo-facebook"></ion-icon>
+						</a></li>
+					<li><a href="https://www.linkedin.com/in/matthew-pecko-278b9314b">
+							<ion-icon name="logo-linkedin"></ion-icon>
+						</a></li>
+					<li><a href="https://github.com/Matthew1172">
+							<ion-icon name="logo-github"></ion-icon>
+						</a></li>
+				</ul>
+			</div>
+			<div class="title">
+				<h3>WEBSITE DEVELOPMENT & DESIGN FROM NYC</h3>
+				<br>
+				<h3><a style="color:white;" href="mailto:pecko.matthew@gmail.com">pecko.matthew@gmail.com</a></h3>
+				<h3><a style="color:white;" href="resume2.html">Resume</a></h3>
+			</div>
+		</div>
+		<div style="position: absolute;" class="canvas-container">
+			<canvas id="c" height="900px" width="1920px"></canvas>
+		</div>
 	</div>
-	<div class="title">
-		<h3>WEBSITE DEVELOPMENT & DESIGN FROM NYC</h3>
-		<br>
-		<h3><a style="color:white;" href="mailto:pecko.matthew@gmail.com">pecko.matthew@gmail.com</a></h3>
-		<h3><a style="color:white;" href="resume2.html">Resume</a></h3>
-	</div>
-</div>
-<div class="canvas-container"><canvas id="c" height="1200" width="1920"></canvas></div>	
 </body>
 
 <script src="webgl-utils.js"></script>
@@ -33,188 +48,191 @@
 <script src="gl-matrix.js"></script>
 <!--<script src="m4.js"></script>-->
 <script>
-"use strict";
+	"use strict";
 
-window.onload = main;
-var vertexShaderText =
-[
-'precision mediump float;',
-'',
-'attribute vec4 vertPosition;',
-'uniform mat4 mWorld;',
-'uniform mat4 mView;',
-'uniform mat4 mProj;',
-'',
-'void main()',
-'{',
-'  gl_Position = mProj * mView * mWorld * vertPosition;',
-'}'
-].join('\n');
+	window.onload = main;
+	var vertexShaderText =
+		[
+			'precision mediump float;',
+			'',
+			'attribute vec4 vertPosition;',
+			'uniform mat4 mWorld;',
+			'uniform mat4 mView;',
+			'uniform mat4 mProj;',
+			'',
+			'void main()',
+			'{',
+			'  gl_Position = mProj * mView * mWorld * vertPosition;',
+			'}'
+		].join('\n');
 
-var fragmentShaderText =
-[
-'precision mediump float;',
-'',
-'void main()',
-'{',
-'  gl_FragColor = vec4(1, 1, 1, 1);',
-'}'
-].join('\n');
+	var fragmentShaderText =
+		[
+			'precision mediump float;',
+			'',
+			'void main()',
+			'{',
+			'  gl_FragColor = vec4(1, 1, 1, 1);',
+			'}'
+		].join('\n');
 
-function main() {
+	function main() {
 
-  //
-  // Create buffer
-  //
-  var boxVertices =
-	[ // X, Y, Z           R, G, B
-    -1, -1, -1,
-    1, -1, -1,
-    1,  1, -1,
-    -1,  1, -1,
-    -1, -1,  1,
-    1, -1,  1,
-    1,  1,  1,
-    -1,  1,  1
-	];
+		//
+		// Create buffer
+		//
+		var boxVertices =
+			[ // X, Y, Z           R, G, B
+				-1, -1, -1,
+				1, -1, -1,
+				1, 1, -1,
+				-1, 1, -1,
+				-1, -1, 1,
+				1, -1, 1,
+				1, 1, 1,
+				-1, 1, 1
+			];
 
 
-  var boxIndices =
-  [
-    0, 1,
-    1, 2,
-    2, 3,
-    3, 0,
-    4, 5,
-    5, 6,
-    6, 7,
-    7, 4,
-    0, 4,
-    1, 5,
-    2, 6,
-    3, 7
-  ];
+		var boxIndices =
+			[
+				0, 1,
+				1, 2,
+				2, 3,
+				3, 0,
+				4, 5,
+				5, 6,
+				6, 7,
+				7, 4,
+				0, 4,
+				1, 5,
+				2, 6,
+				3, 7
+			];
 
-  console.log('This is working');
+		var canvas = document.getElementById('c');
+		var gl = canvas.getContext('webgl');
 
-	var canvas = document.getElementById('c');
-	var gl = canvas.getContext('webgl');
+		if (!gl) {
+			console.log('WebGL not supported, falling back on experimental-webgl');
+			gl = canvas.getContext('experimental-webgl');
+		}
 
-	if (!gl) {
-		console.log('WebGL not supported, falling back on experimental-webgl');
-		gl = canvas.getContext('experimental-webgl');
-	}
+		if (!gl) {
+			alert('Your browser does not support WebGL');
+		}
 
-	if (!gl) {
-		alert('Your browser does not support WebGL');
-	}
 
-	gl.clearColor(0.75, 0.85, 0.8, 1.0);
-	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-	gl.enable(gl.DEPTH_TEST);
-	gl.enable(gl.CULL_FACE);
-	gl.frontFace(gl.CCW);
-	gl.cullFace(gl.BACK);
+		// do your drawing stuff here
+		// Setup
+		gl.clearColor(0.75, 0.85, 0.8, 1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+		gl.enable(gl.DEPTH_TEST);
+		gl.enable(gl.CULL_FACE);
+		gl.frontFace(gl.CCW);
+		gl.cullFace(gl.BACK);
 
-  //
-	// Create shaders
-	//
-	var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-	var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+		//
+		// Create shaders
+		//
+		var vertexShader = gl.createShader(gl.VERTEX_SHADER);
+		var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
 
-	gl.shaderSource(vertexShader, vertexShaderText);
-	gl.shaderSource(fragmentShader, fragmentShaderText);
+		gl.shaderSource(vertexShader, vertexShaderText);
+		gl.shaderSource(fragmentShader, fragmentShaderText);
 
-	gl.compileShader(vertexShader);
-	if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-		console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
-		return;
-	}
+		gl.compileShader(vertexShader);
+		if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+			console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
+			return;
+		}
 
-	gl.compileShader(fragmentShader);
-	if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-		console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
-		return;
-	}
+		gl.compileShader(fragmentShader);
+		if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+			console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
+			return;
+		}
 
-	var program = gl.createProgram();
-	gl.attachShader(program, vertexShader);
-	gl.attachShader(program, fragmentShader);
-	gl.linkProgram(program);
-	if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-		console.error('ERROR linking program!', gl.getProgramInfoLog(program));
-		return;
-	}
-	gl.validateProgram(program);
-	if (!gl.getProgramParameter(program, gl.VALIDATE_STATUS)) {
-		console.error('ERROR validating program!', gl.getProgramInfoLog(program));
-		return;
-	}
+		var program = gl.createProgram();
+		gl.attachShader(program, vertexShader);
+		gl.attachShader(program, fragmentShader);
+		gl.linkProgram(program);
+		if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+			console.error('ERROR linking program!', gl.getProgramInfoLog(program));
+			return;
+		}
+		gl.validateProgram(program);
+		if (!gl.getProgramParameter(program, gl.VALIDATE_STATUS)) {
+			console.error('ERROR validating program!', gl.getProgramInfoLog(program));
+			return;
+		}
 
-  var boxVertexBufferObject = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, boxVertexBufferObject);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(boxVertices), gl.STATIC_DRAW);
+		var boxVertexBufferObject = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, boxVertexBufferObject);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(boxVertices), gl.STATIC_DRAW);
 
-  var boxIndexBufferObject = gl.createBuffer();
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, boxIndexBufferObject);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(boxIndices), gl.STATIC_DRAW);
+		var boxIndexBufferObject = gl.createBuffer();
+		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, boxIndexBufferObject);
+		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(boxIndices), gl.STATIC_DRAW);
 
-  var positionAttribLocation = gl.getAttribLocation(program, 'vertPosition');
-  gl.vertexAttribPointer(
-    positionAttribLocation, // Attribute location
-    3, // Number of elements per attribute
-    gl.FLOAT, // Type of elements
-    gl.FALSE,
-    0, // Size of an individual vertex
-    0 // Offset from the beginning of a single vertex to this attribute
-  );
+		var positionAttribLocation = gl.getAttribLocation(program, 'vertPosition');
+		gl.vertexAttribPointer(
+			positionAttribLocation, // Attribute location
+			3, // Number of elements per attribute
+			gl.FLOAT, // Type of elements
+			gl.FALSE,
+			0, // Size of an individual vertex
+			0 // Offset from the beginning of a single vertex to this attribute
+		);
 
-  gl.enableVertexAttribArray(positionAttribLocation);
+		gl.enableVertexAttribArray(positionAttribLocation);
 
-  // Tell OpenGL state machine which program should be active.
-  gl.useProgram(program);
+		// Tell OpenGL state machine which program should be active.
+		gl.useProgram(program);
 
-  var matWorldUniformLocation = gl.getUniformLocation(program, 'mWorld');
-	var matViewUniformLocation = gl.getUniformLocation(program, 'mView');
-	var matProjUniformLocation = gl.getUniformLocation(program, 'mProj');
+		var matWorldUniformLocation = gl.getUniformLocation(program, 'mWorld');
+		var matViewUniformLocation = gl.getUniformLocation(program, 'mView');
+		var matProjUniformLocation = gl.getUniformLocation(program, 'mProj');
 
-	var worldMatrix = new Float32Array(16);
-	var viewMatrix = new Float32Array(16);
-	var projMatrix = new Float32Array(16);
-	glMatrix.mat4.identity(worldMatrix);
-	glMatrix.mat4.lookAt(viewMatrix, [0, 0, -8], [0, 0, 0], [0, 1, 0]);
-	glMatrix.mat4.perspective(projMatrix, glMatrix.glMatrix.toRadian(45), canvas.clientWidth / canvas.clientHeight, 0.1, 1000.0);
+		var worldMatrix = new Float32Array(16);
+		var viewMatrix = new Float32Array(16);
+		var projMatrix = new Float32Array(16);
+		glMatrix.mat4.identity(worldMatrix);
+		glMatrix.mat4.lookAt(viewMatrix, [0, 0, -8], [0, 0, 0], [0, 1, 0]);
+		glMatrix.mat4.perspective(projMatrix, glMatrix.glMatrix.toRadian(45), canvas.clientWidth / canvas.clientHeight, 0.1, 1000.0);
 
-	gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
-	gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix);
-	gl.uniformMatrix4fv(matProjUniformLocation, gl.FALSE, projMatrix);
-
-	var xRotationMatrix = new Float32Array(16);
-	var yRotationMatrix = new Float32Array(16);
-
-	//
-	// Main render loop
-	//
-	var identityMatrix = new Float32Array(16);
-	glMatrix.mat4.identity(identityMatrix);
-	var angle = 0;
-	var loop = function () {
-		angle = performance.now() / 1000 / 6 * 2 * Math.PI;
-
-        glMatrix.mat4.rotate(yRotationMatrix, identityMatrix, angle, [0, 1, 0]);
-        glMatrix.mat4.rotate(xRotationMatrix, identityMatrix, angle / 1, [1, 0, 0]);
-
-		glMatrix.mat4.mul(worldMatrix, yRotationMatrix, xRotationMatrix);
 		gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
+		gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix);
+		gl.uniformMatrix4fv(matProjUniformLocation, gl.FALSE, projMatrix);
 
-		gl.clearColor(0.0, 0.0, 0.0, 1.0);
-		gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
-		gl.drawElements(gl.LINES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
+		var xRotationMatrix = new Float32Array(16);
+		var yRotationMatrix = new Float32Array(16);
 
+		//
+		// Main render loop
+		//
+		var identityMatrix = new Float32Array(16);
+		glMatrix.mat4.identity(identityMatrix);
+		var angle = 0;
+		var loop = function () {
+			angle = performance.now() / 1000 / 6 * 2 * Math.PI;
+
+			glMatrix.mat4.rotate(yRotationMatrix, identityMatrix, angle, [0, 1, 0]);
+			glMatrix.mat4.rotate(xRotationMatrix, identityMatrix, angle / 1, [1, 0, 0]);
+
+			glMatrix.mat4.mul(worldMatrix, yRotationMatrix, xRotationMatrix);
+			gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
+
+			gl.clearColor(0.0, 0.0, 0.0, 1.0);
+			gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
+			gl.drawElements(gl.LINES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
+
+			requestAnimationFrame(loop);
+		};
 		requestAnimationFrame(loop);
+
 	};
-	requestAnimationFrame(loop);
-};
 </script>
 <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
-          </html>
+
+</html>
