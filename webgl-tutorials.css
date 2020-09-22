@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
 
 canvas {
   width: 100%;
@@ -26,7 +25,7 @@ body {
   text-align: center;
   color: white;
   font-size: 28px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 
 .socialMedia {
