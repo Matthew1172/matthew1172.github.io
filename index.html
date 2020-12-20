@@ -233,11 +233,16 @@
 
 	};
 	
-
-	
-		var z = document.getElementsByClassName("example");
+	var z = document.getElementsByClassName("example");
+	var x = screen.width;
+	if(x < 1200){
 		z[0].innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
 		z[1].innerHTML = "<br><br><br><br><br><br><br><br><br><br>";
+	}else{
+		z[0].innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+		z[1].innerHTML = "<br><br><br><br><br>";
+	}
+	
 	
 </script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
