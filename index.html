@@ -19,17 +19,11 @@
 		</div>
 	</div>
 	<div style="position: relative;">
-		<p>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-		</p>
+		<p class="example"></p>
 		<div class="title">
 			<h3><a style="color:white;" href="resume.html">Matthew's resume</a></h3>
 		</div>
+		<p class="example"></p>
 		<div class="socialMedia">
 			<ul>
 				<li><a style="color:black;" href="https://www.instagram.com/drpecko/">
@@ -238,6 +232,14 @@
 		requestAnimationFrame(loop);
 
 	};
+	
+	var x = screen.width;
+	if(x < 1200){
+		var z = document.getElementsByClassName("example");
+		z[0].innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+		z[1].innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+	}
+	
 </script>
 <script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
 
