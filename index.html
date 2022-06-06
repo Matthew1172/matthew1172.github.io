@@ -1,250 +1,398 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<meta charset="utf8">
-	<title addtitletodoc="false">matthewpecko.com</title>
-	<link rel='icon' href='assets/BLACK.ico' type='image/x-icon' />
-</head>
-<link type="text/css" href="webgl-tutorials.css" rel="stylesheet" />
+<meta charSet="utf-8"/>
+<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<link rel='icon' href='assets/BLACK.ico' type='image/x-icon' />
 
-<body>
-	<div
-		style="justify-content: center; align-items: center; display: flex; flex-direction: column; margin-top: 300px;">
-		<div style="position: absolute; z-index: 1; margin-top: 53px;">
-			<p class="logo line anim-typewriter"><a href="resume.html">matthewpecko.com</a></p>
-		</div>
-		<div style="position: absolute;" class="canvas-container">
-			<canvas id="c" height="900px" width="1920px"></canvas>
-		</div>
-	</div>
-	<div style="position: relative;">
-		<p class="example"></p>
-		<div class="title">
-			<h3><a style="color:white;" href="resume.html">Matthew's resume</a></h3>
-		</div>
-		<p class="example"></p>
-		<div class="socialMedia">
-			<ul>
-				<li><a style="color:black;" href="mailto:pecko.matthew@gmail.com">
-						<ion-icon name="mail-outline"></ion-icon>
-					</a></li>
-				<li><a style="color:black;" href="https://www.facebook.com/people/Matthew-Pecko/100011281894521">
-						<ion-icon name="logo-facebook"></ion-icon>
-					</a></li>
-				<li><a style="color:black;" href="https://www.linkedin.com/in/matthew-pecko-278b9314b">
-						<ion-icon name="logo-linkedin"></ion-icon>
-					</a></li>
-				<li><a style="color:black;" href="https://github.com/Matthew1172">
-						<ion-icon name="logo-github"></ion-icon>
-					</a></li>
-			</ul>
-		</div>
-	</div>
-</body>
+<style>
+* {
+	box-sizing:border-box
+}
 
-<script src="webgl-utils.js"></script>
-<!--<script src="webgl-lessons-ui.js"></script>-->
-<script src="gl-matrix.js"></script>
-<!--<script src="m4.js"></script>-->
-<script>
-	"use strict";
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust:100%
+}
 
-	window.onload = main;
-	var vertexShaderText =
-		[
-			'precision mediump float;',
-			'',
-			'attribute vec4 vertPosition;',
-			'uniform mat4 mWorld;',
-			'uniform mat4 mView;',
-			'uniform mat4 mProj;',
-			'',
-			'void main()',
-			'{',
-			'  gl_Position = mProj * mView * mWorld * vertPosition;',
-			'}'
-		].join('\n');
+body {
+	font-family: Source Sans Pro, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+margin: 0 auto;
+padding: 0 20px;
+	 max-width:840px
+}
 
-	var fragmentShaderText =
-		[
-			'precision mediump float;',
-			'',
-			'void main()',
-			'{',
-			'  gl_FragColor = vec4(1, 1, 1, 1);',
-			'}'
-		].join('\n');
+ul {
+padding: 0;
+	 list-style:none
+}
 
-	function main() {
+h1, h2, h3, h4, h5, h6, ul {
+margin:0
+}
 
-		//
-		// Create buffer
-		//
-		var boxVertices =
-			[ // X, Y, Z           R, G, B
-				-1, -1, -1,
-				1, -1, -1,
-				1, 1, -1,
-				-1, 1, -1,
-				-1, -1, 1,
-				1, -1, 1,
-				1, 1, 1,
-				-1, 1, 1
-			];
+h1, h2 {
+	font-family: Lato, sans-serif;
+	text-transform: uppercase;
+	font-weight:400
+}
 
+h2 {
+	font-size:21px
+}
 
-		var boxIndices =
-			[
-				0, 1,
-				1, 2,
-				2, 3,
-				3, 0,
-				4, 5,
-				5, 6,
-				6, 7,
-				7, 4,
-				0, 4,
-				1, 5,
-				2, 6,
-				3, 7
-			];
+.left {
+float:left
+}
 
-		var canvas = document.getElementById('c');
-		var gl = canvas.getContext('webgl');
+.right {
+float:right
+}
 
-		if (!gl) {
-			console.log('WebGL not supported, falling back on experimental-webgl');
-			gl = canvas.getContext('experimental-webgl');
-		}
+.bold {
+	font-weight:700
+}
 
-		if (!gl) {
-			alert('Your browser does not support WebGL');
-		}
+.italic {
+	font-style:italic
+}
 
+.home {
+width: 100%;
+height: 100vh;
+display: flex;
+	 flex-wrap: wrap;
+	 align-items: center;
+	 font-weight: 300;
+	 font-family:Lato, sans-serif
+}
 
-		// do your drawing stuff here
-		// Setup
-		gl.clearColor(0.75, 0.85, 0.8, 1.0);
-		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-		gl.enable(gl.DEPTH_TEST);
-		gl.enable(gl.CULL_FACE);
-		gl.frontFace(gl.CCW);
-		gl.cullFace(gl.BACK);
+.intro {
+	font-size: 32px;
+	line-height:1.4em
+}
 
-		//
-		// Create shaders
-		//
-		var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-		var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+.company {
+position: relative;
+	  white-space: nowrap;
+color: inherit;
+       text-decoration: none;
+padding: .15em .075em;
+margin: 0 .08em;
+	background-position: left 0 bottom 8px;
+	background-repeat: repeat-x;
+	background-size: 1px 2px;
+display: inline-block;
+transition:background-position 175ms ease-out, color 175ms linear, background-size 175ms linear
+}
 
-		gl.shaderSource(vertexShader, vertexShaderText);
-		gl.shaderSource(fragmentShader, fragmentShaderText);
+.company:focus, .company:hover {
+	background-size: 1px calc(100% - 7px);
+color: #fff;
+       background-position:left 0 bottom 2px
+}
 
-		gl.compileShader(vertexShader);
-		if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-			console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
-			return;
-		}
+.mcd {
+	background-image:linear-gradient(#ccbb1d, #ccbb1d)
+}
 
-		gl.compileShader(fragmentShader);
-		if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-			console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
-			return;
-		}
+.newyorker {
+	background-image:linear-gradient(#606060, #606060)
+}
 
-		var program = gl.createProgram();
-		gl.attachShader(program, vertexShader);
-		gl.attachShader(program, fragmentShader);
-		gl.linkProgram(program);
-		if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-			console.error('ERROR linking program!', gl.getProgramInfoLog(program));
-			return;
-		}
-		gl.validateProgram(program);
-		if (!gl.getProgramParameter(program, gl.VALIDATE_STATUS)) {
-			console.error('ERROR validating program!', gl.getProgramInfoLog(program));
-			return;
-		}
+.meetup {
+	background-image:linear-gradient(#f65858, #f65858)
+}
 
-		var boxVertexBufferObject = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, boxVertexBufferObject);
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(boxVertices), gl.STATIC_DRAW);
+.mux {
+	background-image:linear-gradient(90deg, #ff3d30, #ff2b61)
+}
 
-		var boxIndexBufferObject = gl.createBuffer();
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, boxIndexBufferObject);
-		gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(boxIndices), gl.STATIC_DRAW);
+.mail {
+	background-image:linear-gradient(#000, #000)
+}
 
-		var positionAttribLocation = gl.getAttribLocation(program, 'vertPosition');
-		gl.vertexAttribPointer(
-			positionAttribLocation, // Attribute location
-			3, // Number of elements per attribute
-			gl.FLOAT, // Type of elements
-			gl.FALSE,
-			0, // Size of an individual vertex
-			0 // Offset from the beginning of a single vertex to this attribute
-		);
+.footer {
+	margin-top: 75px;
+	margin-bottom: 20px;
+	font-size:18px
+}
 
-		gl.enableVertexAttribArray(positionAttribLocation);
+.footer-link {
+	text-decoration: none;
+color: #000;
+padding: .1em .75em;
+	 border-right: 1px solid #000;
+display: inline-block;
+position:relative
+}
 
-		// Tell OpenGL state machine which program should be active.
-		gl.useProgram(program);
+.footer-link:after {
+content: "";
+position: absolute;
+bottom: -1px;
+width: 75%;
+height: 1px;
+background: #000;
+left: 0;
+right: 0;
+margin: 0 auto;
+transform: scale(0);
+transition:bottom .2s, transform .35s
+}
 
-		var matWorldUniformLocation = gl.getUniformLocation(program, 'mWorld');
-		var matViewUniformLocation = gl.getUniformLocation(program, 'mView');
-		var matProjUniformLocation = gl.getUniformLocation(program, 'mProj');
+.footer-link:hover:after {
+bottom: 0;
+transform:scale(1)
+}
 
-		var worldMatrix = new Float32Array(16);
-		var viewMatrix = new Float32Array(16);
-		var projMatrix = new Float32Array(16);
-		glMatrix.mat4.identity(worldMatrix);
-		glMatrix.mat4.lookAt(viewMatrix, [0, 0, -8], [0, 0, 0], [0, 1, 0]);
-		glMatrix.mat4.perspective(projMatrix, glMatrix.glMatrix.toRadian(45), canvas.clientWidth / canvas.clientHeight, 0.1, 1000.0);
+.footer-link:first-child {
+	padding-left:0
+}
 
-		gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
-		gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix);
-		gl.uniformMatrix4fv(matProjUniformLocation, gl.FALSE, projMatrix);
+.footer-link:first-child:after {
+left:-.75em
+}
 
-		var xRotationMatrix = new Float32Array(16);
-		var yRotationMatrix = new Float32Array(16);
+.footer-link:last-child {
+border:none
+}
 
-		//
-		// Main render loop
-		//
-		var identityMatrix = new Float32Array(16);
-		glMatrix.mat4.identity(identityMatrix);
-		var angle = 0;
-		var loop = function () {
-			angle = performance.now() / 1000 / 6 * 2 * Math.PI;
+.footer-link:focus, .footer-link:hover {
+	background-position:left 0 bottom 1px
+}
 
-			glMatrix.mat4.rotate(yRotationMatrix, identityMatrix, angle, [0, 1, 0]);
-			glMatrix.mat4.rotate(xRotationMatrix, identityMatrix, angle / 1, [1, 0, 0]);
-
-			glMatrix.mat4.mul(worldMatrix, yRotationMatrix, xRotationMatrix);
-			gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
-
-			gl.clearColor(0.0, 0.0, 0.0, 1.0);
-			gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
-			gl.drawElements(gl.LINES, boxIndices.length, gl.UNSIGNED_SHORT, 0);
-
-			requestAnimationFrame(loop);
-		};
-		requestAnimationFrame(loop);
-
-	};
-	
-	var z = document.getElementsByClassName("example");
-	var x = screen.width;
-	if(x < 1200){
-		z[0].innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
-		z[1].innerHTML = "<br><br><br><br><br><br><br><br><br><br>";
-	}else{
-		z[0].innerHTML = "<br><br><br><br><br><br><br><br><br><br><br><br>";
-		z[1].innerHTML = "<br><br><br>";
+@media only screen and (min-width: 600px) {
+	.intro {
+		font-size:42px
 	}
-	
-	
-</script>
-<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
-</html>
+	.company {
+		background-size:1px 4px
+	}
+}
+
+header {
+float: left;
+width: 100%;
+       margin-bottom:20px
+}
+
+.sidebar, section {
+display:block
+}
+
+.sidebar {
+	margin-top:20px
+}
+
+.sidebar-item {
+float: left;
+width:50%
+}
+
+.me {
+	font-size:34px
+}
+
+.role {
+	font-size: 16px;
+	font-weight:100
+}
+
+.info {
+display:none
+}
+
+.info li {
+	align-items: center;
+margin: 4px 0;
+	font-size: 14px;
+height:24px
+}
+
+.info svg {
+	vertical-align: middle;
+width: 15px;
+       margin-right:10px
+}
+
+.info a {
+	text-decoration: none;
+color:inherit
+}
+
+.job {
+	margin-top: 20px;
+	margin-bottom:15px
+}
+
+.title {
+	font-weight:400
+}
+
+.description {
+	margin-top: 10px;
+	list-style: inside;
+	font-size: 14px;
+	padding-left: 22px;
+	text-indent:-22px
+}
+
+.side-info {
+	margin-top: 20px;
+	margin-bottom:20px
+}
+
+.education {
+	font-size:15px
+}
+
+.float {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+       max-width: 1000px;
+margin: 0 auto;
+right: 0;
+display: flex;
+	 justify-content: flex-end;
+padding:20px
+}
+
+.pdf-wrapper {
+position: relative;
+top: 0;
+margin: 0;
+padding: .75em 1em;
+background: #fff;
+border: 1px solid #d5d5d5;
+	border-radius: 6px;
+cursor: pointer;
+transition: background .2s;
+display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 -webkit-appearance: none;
+	 -moz-appearance:none
+}
+
+.pdf-wrapper:hover {
+background:#eee
+}
+
+.pdf-wrapper:focus {
+outline:none
+}
+
+.pdf-wrapper:active {
+top:1px
+}
+
+.pdf {
+width:35px
+}
+
+@media print, screen and (min-width: 600px) {
+	h2 {
+		font-size:24px
+	}
+
+	.info {
+display: block;
+	 padding-left: 25px;
+	 box-sizing: border-box;
+width:200px
+	}
+
+	.me {
+		font-size:40px
+	}
+
+	.job {
+		margin-top:25px
+	}
+
+	.role {
+		font-size:22px
+	}
+
+	.sidebar {
+		border-left: 1px solid #000;
+		padding-left: 25px;
+		margin-left: 25px;
+		margin-top: 0;
+		box-sizing: border-box;
+width:200px
+	}
+
+	.sidebar-item {
+width:auto
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	main {
+float: left;
+width:calc(100% - 227px)
+	}
+
+	.sidebar {
+float:right
+	}
+}
+
+@media only print {
+	main {
+width:570px
+	}
+
+	.sidebar, main {
+display: inline-block;
+	 vertical-align:top
+	}
+
+	.description {
+		text-indent:-14px
+	}
+
+	.float {
+display: none
+	}
+}
+</style>
+<link data-react-helmet="true" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+</head>
+<body>
+<main class="home">
+<section class="intro">
+<span>Hi, I&#x27;m Matthew Pecko, a Brooklyn based Software Engineer. Some projects I have previously worked on are</span>
+<span style="white-space:nowrap">
+<a class="company mcd" href="https://github.com/matthew1172/musicgenerator" target="_blank" rel="noreferrer">Music Generator</a>
+,
+	</span>
+	<a class="company newyorker" href="https://github.com/Matthew1172/PascalCompilerLinux" target="_blank" rel="noreferrer">Pascal compiler</a>
+	,
+	<a class="company meetup" href="https://github.com/Matthew1172/GoesrHackathon" target="_blank" rel="noreferrer">Goes-R Hackathon</a>
+	<span>. I'm currently working on a React Native app for my Music Generator, </span>
+	<a class="company mux" href="" target="_blank" rel="noreferrer">MelodicMayhem</a>
+	<span>.</span>
+	<p>
+	I am always looking for new projects, so please feel free to<!-- -->
+	<a class="company mail" href="mailto:pecko.matthew@gmail.com" target="_blank" rel="noreferrer">reach out</a>
+	<!-- -->
+	if you&#x27;d like to work together.<!-- -->
+	</p>
+	</section>
+	<section class="footer">
+	<a class="footer-link" href="https://drive.google.com/file/d/16WgBvdCsvIzBysbktTmc3X8cnPLhikOX/view?usp=sharing">Resume</a>
+	<a class="footer-link" href="https://github.com/matthew1172/" target="_blank" rel="noreferrer">Github</a>
+	<a class="footer-link" href="https://www.linkedin.com/in/matthew-pecko-278b9314b/" target="_blank" rel="noreferrer">LinkedIn</a>
+	</section>
+	</main>
+	</body>
+	</html>
