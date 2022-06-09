@@ -27,8 +27,7 @@ margin:0
 
 h1, h2 {
 	font-family: Lato, sans-serif;
-	text-transform: uppercase;
-	font-weight:400
+	font-weight:400;
 }
 
 h2 {
@@ -44,7 +43,11 @@ float:right
 }
 
 .bold {
-	font-weight:700
+	font-weight:700;
+}
+
+.grey {
+	color: #666666;
 }
 
 .italic {
@@ -186,12 +189,13 @@ width:50%
 }
 
 .me {
-	font-size:34px
+	font-size:34px;
+	font-weight:1000;
 }
 
 .role {
 	font-size: 16px;
-	font-weight:100
+	font-weight: 700;
 }
 
 .info {
