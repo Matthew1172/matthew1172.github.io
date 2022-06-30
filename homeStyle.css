@@ -11,18 +11,18 @@ body {
 	font-family: Source Sans Pro, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-margin: 0 auto;
-padding: 0 20px;
-	 max-width:840px
+	margin: 0 auto;
+	padding: 0 20px;
+	max-width:840px;
 }
 
 ul {
-padding: 0;
-	 list-style:none
+	padding: 0;
+	list-style:none
 }
 
 h1, h2, h3, h4, h5, h6, ul {
-margin:0
+	margin:0
 }
 
 h1, h2 {
@@ -35,11 +35,11 @@ h2 {
 }
 
 .left {
-float:left
+	float:left
 }
 
 .right {
-float:right
+	float:right
 }
 
 .bold {
@@ -55,38 +55,39 @@ float:right
 }
 
 .home {
-width: 100%;
-height: 100vh;
-display: flex;
-	 flex-wrap: wrap;
-	 align-items: center;
-	 font-weight: 300;
-	 font-family:Lato, sans-serif
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	font-weight: 300;
+	font-family:Lato, sans-serif;
 }
 
 .intro {
 	font-size: 32px;
-	line-height:1.4em
+	line-height:1.4em;
+	padding-top: 32px;
 }
 
 .company {
-position: relative;
-	  white-space: nowrap;
-color: inherit;
-       text-decoration: none;
-padding: .15em .075em;
-margin: 0 .08em;
+	position: relative;
+	white-space: nowrap;
+	color: inherit;
+	text-decoration: none;
+	padding: .15em .075em;
+	margin: 0 .08em;
 	background-position: left 0 bottom 8px;
 	background-repeat: repeat-x;
 	background-size: 1px 2px;
-display: inline-block;
-transition:background-position 175ms ease-out, color 175ms linear, background-size 175ms linear
+	display: inline-block;
+	transition:background-position 175ms ease-out, color 175ms linear, background-size 175ms linear
 }
 
 .company:focus, .company:hover {
 	background-size: 1px calc(100% - 7px);
-color: #fff;
-       background-position:left 0 bottom 2px
+	color: #fff;
+	background-position:left 0 bottom 2px
 }
 
 .mcd {
@@ -112,35 +113,35 @@ color: #fff;
 .footer {
 	margin-top: 75px;
 	margin-bottom: 20px;
-	font-size:18px
+	font-size:18px;
 }
 
 .footer-link {
 	text-decoration: none;
-color: #000;
-padding: .1em .75em;
-	 border-right: 1px solid #000;
-display: inline-block;
-position:relative
+	color: #000;
+	padding: .1em .75em;
+	border-right: 1px solid #000;
+	display: inline-block;
+	position:relative
 }
 
 .footer-link:after {
-content: "";
-position: absolute;
-bottom: -1px;
-width: 75%;
-height: 1px;
-background: #000;
-left: 0;
-right: 0;
-margin: 0 auto;
-transform: scale(0);
-transition:bottom .2s, transform .35s
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	width: 75%;
+	height: 1px;
+	background: #000;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transform: scale(0);
+	transition:bottom .2s, transform .35s
 }
 
 .footer-link:hover:after {
-bottom: 0;
-transform:scale(1)
+	bottom: 0;
+	transform:scale(1)
 }
 
 .footer-link:first-child {
@@ -148,11 +149,11 @@ transform:scale(1)
 }
 
 .footer-link:first-child:after {
-left:-.75em
+	left:-.75em
 }
 
 .footer-link:last-child {
-border:none
+	border:none
 }
 
 .footer-link:focus, .footer-link:hover {
@@ -170,13 +171,13 @@ border:none
 }
 
 header {
-float: left;
-width: 100%;
-       margin-bottom:20px
+	float: left;
+	width: 100%;
+	margin-bottom:20px
 }
 
 .sidebar, section {
-display:block
+	display:block
 }
 
 .sidebar {
@@ -184,8 +185,8 @@ display:block
 }
 
 .sidebar-item {
-float: left;
-width:50%
+	float: left;
+	width:50%
 }
 
 .me {
@@ -199,25 +200,25 @@ width:50%
 }
 
 .info {
-display:none
+	display:none
 }
 
 .info li {
 	align-items: center;
-margin: 4px 0;
+	margin: 4px 0;
 	font-size: 14px;
-height:24px
+	height:24px
 }
 
 .info svg {
 	vertical-align: middle;
-width: 15px;
-       margin-right:10px
+	width: 15px;
+	margin-right:10px
 }
 
 .info a {
 	text-decoration: none;
-color:inherit
+	color:inherit
 }
 
 .job {
@@ -247,49 +248,49 @@ color:inherit
 }
 
 .float {
-position: fixed;
-bottom: 0;
-left: 0;
-width: 100%;
-       max-width: 1000px;
-margin: 0 auto;
-right: 0;
-display: flex;
-	 justify-content: flex-end;
-padding:20px
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	right: 0;
+	display: flex;
+	justify-content: flex-end;
+	padding:20px
 }
 
 .pdf-wrapper {
-position: relative;
-top: 0;
-margin: 0;
-padding: .75em 1em;
-background: #fff;
-border: 1px solid #d5d5d5;
+	position: relative;
+	top: 0;
+	margin: 0;
+	padding: .75em 1em;
+	background: #fff;
+	border: 1px solid #d5d5d5;
 	border-radius: 6px;
-cursor: pointer;
-transition: background .2s;
-display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 -webkit-appearance: none;
-	 -moz-appearance:none
+	cursor: pointer;
+	transition: background .2s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-appearance: none;
+	-moz-appearance:none
 }
 
 .pdf-wrapper:hover {
-background:#eee
+	background:#eee
 }
 
 .pdf-wrapper:focus {
-outline:none
+	outline:none
 }
 
 .pdf-wrapper:active {
-top:1px
+	top:1px
 }
 
 .pdf {
-width:35px
+	width:35px
 }
 
 @media print, screen and (min-width: 600px) {
@@ -298,10 +299,10 @@ width:35px
 	}
 
 	.info {
-display: block;
-	 padding-left: 25px;
-	 box-sizing: border-box;
-width:200px
+		display: block;
+		padding-left: 25px;
+		box-sizing: border-box;
+		width:200px
 	}
 
 	.me {
@@ -322,33 +323,33 @@ width:200px
 		margin-left: 25px;
 		margin-top: 0;
 		box-sizing: border-box;
-width:200px
+		width:200px
 	}
 
 	.sidebar-item {
-width:auto
+		width:auto
 	}
 }
 
 @media only screen and (min-width: 600px) {
 	main {
-float: left;
-width:calc(100% - 227px)
+		float: left;
+		width:calc(100% - 227px)
 	}
 
 	.sidebar {
-float:right
+		float:right
 	}
 }
 
 @media only print {
 	main {
-width:570px
+		width:570px
 	}
 
 	.sidebar, main {
-display: inline-block;
-	 vertical-align:top
+		display: inline-block;
+		vertical-align:top
 	}
 
 	.description {
@@ -356,6 +357,6 @@ display: inline-block;
 	}
 
 	.float {
-display: none
+		display: none
 	}
 }
