@@ -72,7 +72,7 @@ h2 {
 
 .company {
 	position: relative;
-	white-space: nowrap;
+	white-space: normal;
 	color: inherit;
 	text-decoration: none;
 	padding: .15em .075em;
@@ -90,20 +90,24 @@ h2 {
 	background-position:left 0 bottom 2px
 }
 
-.mcd {
-	background-image:linear-gradient(#ccbb1d, #ccbb1d)
+.proj1 {
+	background-image:linear-gradient(#FF4BEE, #FF4BEE)
 }
 
-.newyorker {
-	background-image:linear-gradient(#606060, #606060)
+.proj2 {
+	background-image:linear-gradient(#F80020, #F80020)
 }
 
-.meetup {
-	background-image:linear-gradient(#f65858, #f65858)
+.proj3 {
+	background-image:linear-gradient(#0200FF, #0200FF)
 }
 
-.mux {
-	background-image:linear-gradient(90deg, #ff3d30, #ff2b61)
+.proj4 {
+	background-image:linear-gradient(#01EB43, #01EB43)
+}
+
+.proj5 {
+	background-image:linear-gradient(#FDF41B, #FDF41B)
 }
 
 .mail {
